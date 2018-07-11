@@ -1,6 +1,6 @@
 @extends('visitor.layouts.main')
 
-@section('page_title', 'Reading article')
+@section('page_title', 'TOUSNATV | ' . $article->title)
 @section('meta')
     <meta property="og:url"           content="{{ route('visitor.article.detail', $article->id) }}" />
     <meta property="og:type"          content="website" />
@@ -58,22 +58,6 @@
                                                 </div>
                                             </div>    
                                             <div class="broder"></div>
-                                            <div class="datetime">
-                                                <div class="pull-left">
-                                                    <div class="para" >
-                                                        <p style="font-family: 'Hanuman', serif;">ចន្លោះមិនឃើញ</p>
-                                                    </div>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <div class="social-share">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="Pagetext">
-                                                <p style="float: left; font-family: 'Hanuman', serif;">
-                                                    {!! str_limit(strip_tags($article->content), 800) !!}
-                                                </p>
-                                            </div>
                                             <div class="uk-width-1-1">
                                                 <div class="inner uk-background-cover">
                                                     <div class="detail-img">
@@ -82,13 +66,6 @@
                                                 </div>
                                             </div> <!-- Post detail entry -->
                                             <div class="inner">
-                                                <div class="uk-float-left">
-                                                    <h3 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;">
-                                    ​                   <span>ព័ត៏មានលំអិត</span>
-                                                       <i class="fa fa-angle-double-right"></i>
-                                    ​                   {{ $article->title }}
-                                                    </h3>
-                                                </div>
                                                 <div class="post-content">
                                                     <p class="post-title" style="font-family: 'Hanuman', serif;">{!! $article->content !!} </p>
                                                 </div><!-- Post content end -->

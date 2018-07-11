@@ -36,21 +36,21 @@
                         <div class="collapse navbar-collapse navbar-responsive-collapse">
                             <ul class="nav navbar-nav">
                              @if(!empty($reading_menus))
-                                 @foreach($reading_menus->categories as $category)
-                                <li>
-                                    <a href="{{ route('visitor.article.category', $category->id) }}" class="custom-a__link font-kh-nokora">
-                                        {{ $category->name }}
-                                    </a>
-                                </li>
+                                @foreach($reading_menus as $menu)
+                                  <li>
+                                      <a href="{{ route('visitor.article.category', $menu->id) }}" class="custom-a__link font-kh-nokora">
+                                          {{ $menu->name }}
+                                      </a>
+                                  </li>
                                 @endforeach
                              @endif
                              @if(!empty($video_menus))
-                                  @foreach($video_menus->categories as $category)
-                                  <li>
-                                      <a href="{{ route('visitor.video.category', $category->id) }}" class="custom-a__link font-kh-nokora">
-                                          <img src="{{asset('images')}}/{{ $category->images}}" alt="">
-                                      </a>
-                                  </li>
+                                  @foreach($video_menus as $menu)
+                                    <li>
+                                        <a href="{{ route('visitor.video.category', $menu->id) }}" class="custom-a__link font-kh-nokora">
+                                            <img src="{{asset('images')}}/{{ $menu->images}}" alt="">
+                                        </a>
+                                    </li>
                                   @endforeach
                               @endif
 
