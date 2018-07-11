@@ -19,10 +19,11 @@ class VisitorPage
      */
     public function __construct()
     {
-        $menus = CategoryType::with('categories')->get();
-        $this->reading_menus = $menus->where('mediatype_id', '=', 1)->first();
-        $this->listen_menus = $menus->where('mediatype_id', '=', 2)->first();
-        $this->video_menus = $menus->where('mediatype_id', '=', 3)->first();
+        $menus = CategoryType::join('categories', 'category_type.category_id', 'categories.id')
+                ->where('categories.deleted_at', null)->get();
+        $this->reading_menus = $menus->where('mediatype_id', 1);
+        $this->listen_menus = $menus->where('mediatype_id', 2);
+        $this->video_menus = $menus->where('mediatype_id', 3);
     }
 
     /**
@@ -33,7 +34,6 @@ class VisitorPage
      */
     public function compose(View $view)
     {
-
         $view->with([
             'reading_menus' => $this->reading_menus,
             'listen_menus' => $this->listen_menus,
