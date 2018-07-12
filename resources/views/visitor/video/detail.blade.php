@@ -26,7 +26,7 @@
          <div class="col-sm-8">
                 <div class="videos">
                     @if($video->video_url)
-                        <iframe width="100%" height="410px" src="{{$video->video_url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="100%" height="410px" src="https://www.youtube.com/embed/{{$video->video_url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     @endif
 
                 </div>
