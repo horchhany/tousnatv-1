@@ -3,7 +3,7 @@
 @section('page_title', 'welcome to tousnatv website')
 
 @section('slideshow')
-    @if(!empty($sliders) && count($sliders) > 0)
+    @if(!empty($slides) && count($slides) > 0)
 	<div class="gap-20"></div>
     <!-- Slideshow -->
     <section class="featured-post-area no-padding">
@@ -11,96 +11,81 @@
             <div class="row">
                 <div class="col-md-7 col-xs-12 pad-r latest-news block color-red">
                     <div id="featured-slider" class="owl-carousel owl-theme featured-slider">
-                         @foreach($sliders as $key => $slider)
-                        <div class="item" style="background-image:url('@if($slider->featured_image){{ asset(str_replace('thumbs', 'uploads', $slider->featured_image)) }}@else{{ asset('images/no_thumbnail_img.jpg') }}@endif')">
-                            <div class="featured-post">
-                                <div class="post-content">
-					@if($key=='url')
-                                            <a class="post-cat" href="{{$slider->url}}">{{ $slider->genre }}</a> 
-                                        @else
-                                            <a class="post-cat" href="{{ route('visitor.article.detail', $slider->id) }}">{{ $slider->genre }}</a> 
-                                        @endif()
-
-                                                                      <h2 class="post-title title-extra-large">
-                                        @if($key=='url')
-                                            <a href="{{$slider->url}}">{!! str_limit(strip_tags($slider->content), 50) !!}</a> 
-                                        @else
-                                            <a href="{{ route('visitor.article.detail', $slider->id) }}">{!! str_limit(strip_tags($slider->content), 50) !!}</a> 
-                                        @endif()
-                                    </h2>
-                                    <span class="post-date" style="font-family: 'Hind Siliguri', sans-serif;">
-                                        <i class="fa fa-clock-o"></i>
-                                        {{ $slider->created_at->format('D\\, d M\\, Y') }}
-                                    </span>
+                        @foreach ($slides as $key => $slide)
+                            <div class="item" style="background-image:url('@if($slide->image){{ $slide->image }}@else{{ asset('images/no_thumbnail_img.jpg') }}@endif')">
+                                <div class="featured-post">
+                                    <div class="post-content">
+                                        <h2 class="post-title title-extra-large">
+                                            <a href="{{ $slide->link }}" target="_blank">
+                                                {!! str_limit(strip_tags($slide->title), 50) !!}
+                                            </a>
+                                        </h2>
+                                    </div>
                                 </div>
-                            </div><!--/ Featured post end -->
-
-                            
-                        </div><!-- Item 1 end -->
+                            </div>
                         @endforeach
-                       
                     </div><!-- Featured owl carousel end-->
                 </div><!-- Col 7 end -->
 
-
                 <div class="col-md-5 col-xs-12 pad-l ">
-                    <div class="row">                     
-                        <div class="col-sm-12 latest-news block color-red">                            
-                            <div class="post-overaly-style contentTop hot-post-top clearfix">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="{{ asset($entertaiment[0]->featured_image) }}" class="img-responsive" alt=""></a>
+                    <div class="row">
+                        {{-- Featured Post 1 --}}
+                        @isset ($featuredPosts[0])
+                            <div class="col-sm-12 latest-news block color-red">
+                                <div class="post-overaly-style contentTop hot-post-top clearfix">
+                                    <div class="post-thumb">
+                                        <img src="{{ asset($featuredPosts[0]->featured_image) }}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="post-content">
+                                        <a class="post-cat" href="#">{{ $featuredPosts[0]->name }}</a>
+                                        <h2 class="post-title title-large">
+                                            <a href="{{ route('visitor.article.detail', $featuredPosts[0]->id) }}">{{str_limit($featuredPosts[0]->title,80)}}</a>
+                                        </h2>
+                                    </div>
                                 </div>
-                                <div class="post-content">
-                                    <a class="post-cat" href="#">{{$entertaiment[0]->name}}</a>
-                                    <h2 class="post-title title-large">
-                                        <a href="{{ route('visitor.article.detail', $entertaiment[0]->id) }}">{{str_limit($entertaiment[0]->title,80)}}</a>
-                                    </h2>
-                                    
-                                </div><!-- Post content end -->
+                            </div>
+                        @endisset
 
-                            </div><!-- Post Overaly end -->
-                            
-                        </div><!-- Col end -->
-
-                        <div class="slider-top">
-                        <div class="col-sm-6 pad-r-small latest-news block color-red">
-                            <div class="post-overaly-style contentTop hot-post-bottom clearfix">
-                                <div class="post-thumb">
-                                   <a href="#"> <img src="{{ asset($khmer[0]->featured_image) }}" class="img-respons" alt=""></a>
+                        {{-- Featured Post 2 --}}
+                        @isset ($featuredPosts[1])
+                            <div class="col-sm-6 pad-r-small latest-news block color-red">
+                                <div class="post-overaly-style contentTop hot-post-bottom clearfix">
+                                    <div class="post-thumb">
+                                       <img src="{{ asset($featuredPosts[1]->featured_image) }}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="post-content">
+                                        <a class="post-cat" href="#">{{ $featuredPosts[1]->name }}</a>
+                                        <h2 class="post-title title-large">
+                                            <a href="{{ route('visitor.article.detail', $featuredPosts[1]->id) }}">{{str_limit($featuredPosts[1]->title,35)}}</a>
+                                        </h2>
+                                    </div>
                                 </div>
-                                <div class="post-content">
-                                    <a class="post-cat" href="#">{{$khmer[0]->name}}</a>
-                                    <h2 class="post-title title-large">
-                                        <a href="{{ route('visitor.article.detail', $khmer[0]->id) }}">{{str_limit($khmer[0]->title,35)}}</a>
-                                    </h2>
-                                </div><!-- Post content end -->
-                            </div><!-- Post Overaly end -->
-                        </div><!-- Col end -->
-                    </div>
+                            </div>
+                        @endisset
 
-                        <div class="col-sm-6 pad-l-small latest-news block color-red">
-                            <div class="post-overaly-style contentTop hot-post-bottom clearfix">
-                                <div class="post-thumb">
-                                  <a href="#">  <img src="{{ asset($success[0]->featured_image) }}" class="img-responsive" alt=""></a>
+                        {{-- Featured Post 3 --}}
+                        @isset ($featuredPosts[2])
+                            <div class="col-sm-6 pad-l-small latest-news block color-red">
+                                <div class="post-overaly-style contentTop hot-post-bottom clearfix">
+                                    <div class="post-thumb">
+                                        <img src="{{ asset($featuredPosts[2]->featured_image) }}" class="img-responsive" alt="">
+                                    </div>
+                                     <div class="post-content">
+                                        <a class="post-cat" href="#">{{ $featuredPosts[2]->name }}</a>
+                                        <h2 class="post-title title-large">
+                                            <a href="{{ route('visitor.article.detail', $featuredPosts[2]->id) }}">{{str_limit($featuredPosts[2]->title,35)}}</a>
+                                        </h2>
+                                    </div>
                                 </div>
-                                 <div class="post-content">
-                                    <a class="post-cat" href="#">{{$success[0]->name}}</a>
-                                    <h2 class="post-title title-large">
-                                        <a href="{{ route('visitor.article.detail', $success[0]->id) }}">{{str_limit($success[0]->title,35)}}</a>
-                                    </h2>
-                                </div><!-- Post content end -->
-                             
-                            </div><!-- Post Overaly end -->
-                        </div><!-- Col end -->
+                            </div>
+                        @endisset
                     </div>
                 </div><!-- Col 5 end -->
-
             </div><!-- Row end -->
         </div><!-- Container end -->
-    </section><!-- Trending post end -->
-                   
+    </section>
     <!-- /Slideshow -->
-@endif()    
+    @endif()
 @endsection
 
 @section('content')

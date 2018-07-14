@@ -49,6 +49,23 @@
                     </div>
                 </li>
                 <li>
+                    <a href="#"><i class="fa fa-sliders"></i> Slide</a>
+                    <div class="dropdown-nav">
+                        <ul>
+                            <li>
+                                <a href="{{ route('admin.slide') }}">
+                                    <i class="fa fa-sliders"></i> List All Slides
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.slide.create') }}">
+                                    <i class="fa fa-plus-square-o"></i> Create Slide
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
                     <a href="#"><i class="fa fa-tags"></i> Tag</a>
                     <div class="dropdown-nav">
 

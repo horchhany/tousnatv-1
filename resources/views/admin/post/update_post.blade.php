@@ -188,14 +188,6 @@
                             </div>
                         </div>
 
-                        <div class="custom-form-group">
-                            <input value="{{ $post->genre }}" placeholder="Genre type ..." type="text" name="genre" class="custom-input-text" />
-                        </div>
-
-                        <div class="custom-form-group">
-                            <input value="{{ $post->source }}" placeholder="Source ..." type="text" name="source" class="custom-input-text" />
-                        </div>
-
                         <!-- Featured image field -->
                         <div class="custom-form-group">
                             <div class="file-input-wrapper">

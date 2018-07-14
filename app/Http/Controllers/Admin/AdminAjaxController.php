@@ -18,6 +18,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Department;
 use App\Models\Partner;
+use App\Models\Slide;
 use Conner\Tagging\Model\Tag;
 use Conner\Tagging\Model\Tagged;
 use Auth;
@@ -177,7 +178,66 @@ class AdminAjaxController extends Controller
         return redirect()->back();
     }
 
-    // Remove Partner
+	/**
+	 * @param Request $request
+	 * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+	 */
+	public function removeSlide(Request $request)
+	{
+		if ($request->ajax()) {
+			// Determine if slide id exists
+			if ($request->has('id')) {
+				$slideId = $request->input('id');
+				try {
+					$slide = Post::findOrFail($slideId);
+				} catch (ModelNotFoundException $e) {
+					return response()->json([
+						"status" => 202,
+						"error" => [
+							"code" => 202,
+							"message" => "No Query result found for post ID : " . $slideId,
+						]
+					]);
+				}
+
+				// Try to delete slide
+				try {
+					$slide->delete();
+				} catch(Exception $e) {
+					return response()->json([
+						"status" => 505,
+						"error" => [
+							"code" => 505,
+							"message" => "Error while trying to delete slide",
+						]
+					]);
+				}
+
+				// Response with successful message
+				return response()->json([
+					"status" => 200,
+					"success" => [
+						"code" => 200,
+						"message" => "Slide has been successfully deleted.",
+					]
+				]);
+			}
+
+			// Request must specify slide id
+			return response()->json([
+				"status" => 202,
+				"error" => [
+					"code" => 202,
+					"message" => "Invalid request data",
+				]
+			]);
+		}
+
+		// Redirect if request not an AJAX
+		return redirect()->back();
+	}
+
+	// Remove Partner
     public function removePartner(Request $request){
         if($request->ajax()){
 
