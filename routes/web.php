@@ -122,6 +122,14 @@ Route::group([
     Route::post('author/edit', 'AuthorController@update')->name('admin.author.update');
     Route::post('author/{author_id}/remove', 'AuthorController@destroy')->name('admin.author.destroy');
 
+    // Slide CRUD Operations
+	Route::get('slide', 'SlideController@index')->name('admin.slide');
+	Route::get('slide/add', 'SlideController@create')->name('admin.slide.create');
+	Route::post('slide/store', 'SlideController@store')->name('admin.slide.store');
+	Route::get('slide/edit/{id}', 'SlideController@edit')->name('admin.slide.edit');
+	Route::post('slide/update', 'SlideController@update')->name('admin.slide.update');
+	Route::post('slide/remove/{id}', 'SlideController@destroy')->name('admin.slide.destroy');
+
     // Setting CRUD Operation
     Route::get('setting', 'SettingController@index')->name('admin.setting');
     Route::get('setting/add', 'SettingController@create')->name('admin.setting.create');
@@ -184,8 +192,9 @@ Route::group([
 
     Route::post('posts/{post_id?}', 'AdminAjaxController@getPosts')->name('admin.ajax.posts');
     Route::delete('posts/remove', 'AdminAjaxController@removePost')->name('admin.ajax.delete_post');
-    Route::delete('partner/remove', 'AdminAjaxController@removePartner')->name('admin.ajax.delete_partner');
-    Route::delete('author/remove', 'AdminAjaxController@removeAuthor')->name('admin.ajax.delete_author');
+	Route::delete('slide/remove', 'AdminAjaxController@removeSlide')->name('admin.ajax.delete_slide');
+	Route::delete('partner/remove', 'AdminAjaxController@removePartner')->name('admin.ajax.delete_partner');
+	Route::delete('author/remove', 'AdminAjaxController@removeAuthor')->name('admin.ajax.delete_author');
     Route::delete('category/remove', 'AdminAjaxController@removeCategory')->name('admin.ajax.delete_category');
     Route::delete('tag/remove', 'AdminAjaxController@removeTag')->name('admin.ajax.remove_tag');
     Route::delete('serie/remove', 'AdminAjaxController@removeSerie')->name('admin.ajax.remove_serie');

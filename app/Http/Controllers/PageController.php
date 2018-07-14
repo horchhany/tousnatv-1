@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\CategoryType;
 use App\Models\PlaylistSerie;
 use App\Models\Partner;
+use App\Models\Slide;
 use Carbon\Carbon;
 use Exception;
 use DB;
@@ -44,20 +45,9 @@ class PageController extends Controller
                         ])
                         ->with('tagged', 'category')
                         ->latest()
-                        
                         ->take(8)->get();
 
-        // Featured Slider Post
-        $sliders = Post::whereNull('deleted_at')
-                        ->where([
-                            ['is_featured', 1],
-                            ['status', 1]
-                        ])
-                        ->orderBy('mediatype_id', 'asce')
-                        ->latest()
-                        ->take(4)
-                        ->get();
-
+        $slides = Slide::orderBy('order')->take(5)->get();
 
         $suggestVideoss = Post::where([
                                 ['mediatype_id', 3],
@@ -99,20 +89,9 @@ class PageController extends Controller
             ->latest()
             ->first();
 
-
-        $entertaiment = DB::select("SELECT cr.name,p.id,p.category_id,p.title,p.featured_image FROM `posts` p INNER JOIN categories cr 
-on cr.id = p.category_id 
-where p.category_id = 2 ORDER BY p.id desc LIMIT 1 ");
-         $khmer = DB::select("SELECT cr.name,p.id,p.category_id,p.title,p.featured_image FROM `posts` p INNER JOIN categories cr 
-on cr.id = p.category_id 
-where p.category_id = 4 ORDER BY p.id desc LIMIT 1 ");
-         $success = DB::select("SELECT cr.name,p.id,p.category_id,p.title,p.featured_image FROM `posts` p INNER JOIN categories cr 
-on cr.id = p.category_id 
-where p.category_id = 5 ORDER BY p.id desc LIMIT 1 ");
-
-//         $allpost=DB::select("SELECT cr.name,p.id,p.category_id,p.title,p.featured_image,p.created_at FROM `posts` p INNER JOIN categories cr 
-// on cr.id = p.category_id 
-// where p.category_id = 2 OR p.category_id=4 OR p.category_id=5 ORDER BY p.id desc LIMIT 20");
+        $featuredPosts = DB::select("SELECT cr.name, p.id, p.category_id, p.title, p.featured_image FROM `posts` p
+                        INNER JOIN categories cr on cr.id = p.category_id 
+                        WHERE p.is_featured = true AND p.deleted_at IS NULL ORDER BY p.id DESC LIMIT 3");
 
         $authors = Author::orderBy('created_at','desc')->get();
 
@@ -120,15 +99,13 @@ where p.category_id = 5 ORDER BY p.id desc LIMIT 1 ");
                 'articles' => $articles,
                 'videos' => $videos,
                 'audios' => $audios,
-                'sliders' => $sliders,
+                'slides' => $slides,
                 'partners' => $partners,
                 'authors' => $authors,
                 'authorFeature' => $authorFeature,
-                'suggestVideoss' =>$suggestVideoss,
-                'entertaiment' =>$entertaiment,
-                'khmer' =>$khmer,
-                'success' =>$success,
-                'allpost'=>$allpost,
+                'suggestVideoss' => $suggestVideoss,
+                'featuredPosts' => $featuredPosts,
+                'allpost' => $allpost,
 		'new'=>$new
             ]);
     }

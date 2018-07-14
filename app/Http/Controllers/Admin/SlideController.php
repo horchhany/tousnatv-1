@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Exception;
+use App\Models\Slide;
 
-class SliderController extends Controller
+class SlideController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $slides = Slide::all()->sortByDesc('id');
+		return view('admin.slide.index', compact('slides'));
+	}
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +26,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.slide.create');
     }
 
     /**
@@ -36,18 +37,20 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+		$this->validate($request, [
+			'title' => 'required',
+			'image' => 'required',
+		]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+		$slide = new Slide();
+		$slide->title = $request->title;
+		$slide->link = $request->link;
+		$slide->order = $request->order;
+		$slide->image = $request->image;
+
+		if ($slide->save()) {
+			return back()->with('success_message', 'Slide has been saved.');
+		}
     }
 
     /**

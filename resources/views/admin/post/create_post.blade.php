@@ -187,7 +187,7 @@
                     </div>
                     <div class="heading">
                         <h2>
-                            Advance Options
+                            Advanced Options
                         </h2>
                     </div>
                     <div class="advance-options">
@@ -212,17 +212,6 @@
                             <div class="custom-checkbox__outer">
                                 <input name="is_featured" id="is_featured" type="checkbox" value="1" class="checkbox">
                             </div>
-                        </div>
-                         <div class="custom-form-group">
-                            <input placeholder="Url type..." type="text" name="url" class="custom-input-text" />
-                        </div>
-
-                        <div class="custom-form-group">
-                            <input placeholder="Genre type ..." type="text" name="genre" class="custom-input-text" />
-                        </div>
-
-                        <div class="custom-form-group">
-                            <input placeholder="Source ..." type="text" name="source" class="custom-input-text" />
                         </div>
 
                         <!-- Featured image field -->
