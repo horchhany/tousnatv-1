@@ -6,14 +6,14 @@
 <body>
     <div class="page-wrapper">
 
-        @includeIf('admin.partials._sidebar')
+      @includeIf('admin.partials._sidebar')
 
         <div class="main-panel">
             @includeIf('admin.partials._navbar')
             @yield('content')
         </div>
-
         @includeIf('admin.partials._footer')
+
     </div>
 </body>
 

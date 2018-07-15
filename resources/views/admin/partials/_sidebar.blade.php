@@ -2,7 +2,7 @@
     <div class="inner">
         <div class="sidebar-heading">
             <h3 style="display:none;">១៨០<span>MEDIA &amp; NEWS</span></h3>
-            <img src="{{ asset('images/logo/site_logo_large.png') }}">
+            <img src="{{ asset('images/logo/site_logo_large.png') }}" style="width:100px">
         </div>
         <div class="main-nav">
             <ul>
