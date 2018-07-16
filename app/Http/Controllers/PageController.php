@@ -47,7 +47,7 @@ class PageController extends Controller
                         ->latest()
                         ->take(8)->get();
 
-        $slides = Slide::orderBy('order')->take(5)->get();
+        $slides = Slide::orderBy('order')->orderBy('id', 'DESC')->take(5)->get();
 
         $suggestVideoss = Post::where([
                                 ['mediatype_id', 3],

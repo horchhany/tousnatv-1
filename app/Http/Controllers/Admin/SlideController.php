@@ -61,29 +61,37 @@ class SlideController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slide = Slide::find($id);
+        if ($slide) {
+        	return view('admin.slide.edit', compact('slide'));
+		}
+
+		return redirect()->route('admin.slide');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
-    }
+		$this->validate($request, [
+			'title' => 'required',
+		]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+		$slide = Slide::find($request->id);
+		$slide->title = $request->title;
+		$slide->link = $request->link;
+		$slide->order = $request->order;
+
+		if ($request->image) {
+			$slide->image = $request->image;
+		}
+
+		if ($slide->save()) {
+			return back()->with('success_message', 'Slide has been saved.');
+		}
     }
 }
