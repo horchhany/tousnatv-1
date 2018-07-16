@@ -189,13 +189,13 @@ class AdminAjaxController extends Controller
 			if ($request->has('id')) {
 				$slideId = $request->input('id');
 				try {
-					$slide = Post::findOrFail($slideId);
+					$slide = Slide::findOrFail($slideId);
 				} catch (ModelNotFoundException $e) {
 					return response()->json([
 						"status" => 202,
 						"error" => [
 							"code" => 202,
-							"message" => "No Query result found for post ID : " . $slideId,
+							"message" => "No Query result found for slide ID : " . $slideId,
 						]
 					]);
 				}
@@ -233,7 +233,7 @@ class AdminAjaxController extends Controller
 			]);
 		}
 
-		// Redirect if request not an AJAX
+		// Redirect if request is not AJAX
 		return redirect()->back();
 	}
 
