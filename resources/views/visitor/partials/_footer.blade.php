@@ -6,17 +6,15 @@
 
             <div class="footer-gird__item">
                 <div class="inner">
-                    <div class="footer-logo">
-                        <img src="{{ asset('images/logo/site_logo_medium.png') }}" alt="">
-                    </div>
+                    
                     <div class="footer-copyright">
-                        <p class="font-kh-hanuman">
-                            &copy; រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ <span class="font-en-opensans company_name">BIG K</span> ឆ្នាំ២០១៦
+                        <p class="font-kh-hanuman footer-title">
+                            &copy; រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ <span class="font-en-opensans company_name">ទស្សនាធីវី</span> ឆ្នាំ២០១៦
                         </p>
                     </div>
                     <div class="footer-address">
-                        <strong class="font-kh-nokora">អាស័យដ្ធាន</strong>
-                        <p class="font-kh-hanuman">
+                        <strong class="font-kh-nokora footer-title">អាស័យដ្ធាន</strong>
+                        <p class="font-kh-hanuman footer-title">
                             អាគារលេខ ៣០៨ មហាវិថីព្រះមុន្នីវង្ស សង្កាត់បឹងរាំង ខណ្ឌដូនពេញ
                         </p>
                     </div>
@@ -26,19 +24,14 @@
             <div class="footer-gird__item">
                 <div class="inner">
                     <div class="footer-aboutus">
-                        <h3 class="font-kh-nokora footer-title">អំពីយើង</h3>
-                        <p class="font-kh-hanuman">
-                            <span class="font-en-opensans company_name">BIG K DIGITAL</span>
-                            គឺជាក្រុមហ៊ុនឌីជីថលនិងកម្សាន្តឈានមុខគេនៅកម្ពុជា។
-                            ព័ត៌មាន​បន្ថែម
-                        </p>
-                        <strong class="font-kh-hanuman">
-                            ផលិតផលនិងសេវាកម្មរបស់
-                        </strong>
-                        <p>
-                            <img src="{{ asset('images/logo/site_logo_medium.png') }}" alt="">
-                            <img src="{{ asset('images/ads/media_ads_bigk_film.png') }}" alt="">
-                        </p>
+                        
+                        <div class="uk-margin-top">
+                            <strong class="font-kh-nokora footer-title">
+                                ទំនាក់ទំនង
+                            </strong>
+                            <p class="uk-text-large">E-mail: tousnatv@gmail.comm</p>
+                            <p class="uk-text-large">Tel: +855 77852 000</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,15 +51,6 @@
                                 <a href="#"><i class="fa fa-youtube"></i></a>
                             </li>
                         </div>
-
-                        <div class="uk-margin-top">
-                            <strong class="font-kh-nokora">
-                                ទំនាក់ទំនង
-                            </strong>
-                            <p class="uk-text-large">info@180inspires.com</p>
-                            <p class="uk-text-large">023 099 7789</p>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -78,7 +62,7 @@
 
 <!-- /Site footer -->
  <!--frontend-->
-    <script src="{{asset('frontend/js/bootsrap.min.js')}}"></script>
+    <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('frontend/js/custom.js')}}"></script>
     <script src="{{asset('frontend/js/ini.isotope.js')}}"></script>
     <script src="{{asset('frontend/js/isotope.js')}}"></script>

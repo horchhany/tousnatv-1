@@ -1,6 +1,6 @@
 @extends('visitor.layouts.main')
 
-@section('page_title', 'watch')
+@section('page_title', 'Watch Video')
 
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('lib/jssocial/jssocials.css') }}">
@@ -47,30 +47,19 @@
                     </div>
 
                     <div class="section-bg__white video-detail__desc uk-margin-bottom">
-                        <div class="inner padding-small uk-clearfix">
-
-                            <div class="post-detail__title uk-float-left">
-                                <h1 class="title">
-                                    DESCRIPTION
-                                </h1>
-                            </div>
-
                             <article class="post-detail__article uk-float-left">
                                 {!! $video->content !!}
                             </article>
-
-                        </div>
                     </div>
 
                     <div class="fb-connect uk-float-left">
                         <h3 class="heading" >
                             	Connect with			
-			<span class="company_name">
-                                180 Inspire
+			                 <span class="company_name">
+                                TOUSNATV
                             </span>
                         </h3>
                         <span class="facebook-like-share">
-
                         </span>
                     </div>
 

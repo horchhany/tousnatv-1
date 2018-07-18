@@ -37,3 +37,4 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
 
+

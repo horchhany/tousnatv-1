@@ -99,7 +99,7 @@
 
                     </div>
                 </li>
-
+<!--
                 <li>
                     <a href="#"><i class="fa fa-chain"></i> Album &amp; Playlist</a>
                     <div class="dropdown-nav">
@@ -138,9 +138,9 @@
 
                     </div>
                 </li>
-
+-->
                 <li>
-                    <a href="#"><i class="fa fa-chain"></i> Tousnatv &amp; Sponsor</a>
+                    <a href="#"><i class="fa fa-chain"></i> Feature Video </a>
                     <div class="dropdown-nav">
 
                         <ul class="">
@@ -159,7 +159,7 @@
 
                     </div>
                 </li>
-
+<!--
                 <li>
                     <a href="#"><i class="fa fa-users"></i> Author Management</a>
                     <div class="dropdown-nav">
@@ -179,6 +179,7 @@
                         </ul>
                     </div>
                 </li>
+                -->
 
             </ul>
         </div>
