@@ -1,6 +1,6 @@
 @extends('visitor.layouts.main')
 
-@section('page_title', 'welcome to tousnatv website')
+@section('page_title', 'Welcome to TousnaTV Website')
 
 @section('slideshow')
     @if(!empty($slides) && count($slides) > 0)
@@ -12,17 +12,17 @@
                 <div class="col-md-7 col-xs-12 pad-r latest-news block color-red">
                     <div id="featured-slider" class="owl-carousel owl-theme featured-slider">
                         @foreach ($slides as $key => $slide)
-                            <div class="item" style="background-image:url('@if($slide->image){{ $slide->image }}@else{{ asset('images/no_thumbnail_img.jpg') }}@endif')">
-                                <div class="featured-post">
-                                    <div class="post-content">
-                                        <h2 class="post-title title-extra-large">
-                                            <a href="{{ $slide->link }}" target="_blank">
+                            <a href="{{ $slide->link }}" target="_blank">
+                                <div class="item" style="background-image:url('@if($slide->image){{ $slide->image }}@else{{ asset('images/no_thumbnail_img.jpg') }}@endif')">
+                                    <div class="featured-post">
+                                        <div class="post-content">
+                                            <h2 class="post-title title-extra-large white-color">
                                                 {!! str_limit(strip_tags($slide->title), 50) !!}
-                                            </a>
-                                        </h2>
+                                            </h2>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div><!-- Featured owl carousel end-->
                 </div><!-- Col 7 end -->
@@ -32,51 +32,57 @@
                         {{-- Featured Post 1 --}}
                         @isset ($featuredPosts[0])
                             <div class="col-sm-12 latest-news block color-red">
-                                <div class="post-overaly-style contentTop hot-post-top clearfix">
-                                    <div class="post-thumb">
-                                        <img src="{{ asset($featuredPosts[0]->featured_image) }}" class="img-responsive" alt="">
+                                <a href="{{ route('visitor.article.detail', $featuredPosts[0]->id) }}">
+                                    <div class="post-overaly-style contentTop hot-post-top clearfix">
+                                        <div class="post-thumb">
+                                            <img src="{{ asset($featuredPosts[0]->featured_image) }}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-cat">{{ $featuredPosts[0]->name }}</p>
+                                            <h2 class="post-title title-large white-color">
+                                                {{ str_limit($featuredPosts[0]->title, 80) }}
+                                            </h2>
+                                        </div>
                                     </div>
-                                    <div class="post-content">
-                                        <a class="post-cat" href="#">{{ $featuredPosts[0]->name }}</a>
-                                        <h2 class="post-title title-large">
-                                            <a href="{{ route('visitor.article.detail', $featuredPosts[0]->id) }}">{{str_limit($featuredPosts[0]->title,80)}}</a>
-                                        </h2>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @endisset
 
                         {{-- Featured Post 2 --}}
                         @isset ($featuredPosts[1])
                             <div class="col-sm-6 pad-r-small latest-news block color-red">
-                                <div class="post-overaly-style contentTop hot-post-bottom clearfix">
-                                    <div class="post-thumb">
-                                       <img src="{{ asset($featuredPosts[1]->featured_image) }}" class="img-responsive" alt="">
+                                <a href="{{ route('visitor.article.detail', $featuredPosts[1]->id) }}">
+                                    <div class="post-overaly-style contentTop hot-post-bottom clearfix">
+                                        <div class="post-thumb">
+                                           <img src="{{ asset($featuredPosts[1]->featured_image) }}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-cat">{{ $featuredPosts[1]->name }}</p>
+                                            <h2 class="post-title title-large white-color">
+                                                {{str_limit($featuredPosts[1]->title,35)}}
+                                            </h2>
+                                        </div>
                                     </div>
-                                    <div class="post-content">
-                                        <a class="post-cat" href="#">{{ $featuredPosts[1]->name }}</a>
-                                        <h2 class="post-title title-large">
-                                            <a href="{{ route('visitor.article.detail', $featuredPosts[1]->id) }}">{{str_limit($featuredPosts[1]->title,35)}}</a>
-                                        </h2>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @endisset
 
                         {{-- Featured Post 3 --}}
                         @isset ($featuredPosts[2])
                             <div class="col-sm-6 pad-l-small latest-news block color-red">
-                                <div class="post-overaly-style contentTop hot-post-bottom clearfix">
-                                    <div class="post-thumb">
-                                        <img src="{{ asset($featuredPosts[2]->featured_image) }}" class="img-responsive" alt="">
+                                <a href="{{ route('visitor.article.detail', $featuredPosts[2]->id) }}">
+                                    <div class="post-overaly-style contentTop hot-post-bottom clearfix">
+                                        <div class="post-thumb">
+                                            <img src="{{ asset($featuredPosts[2]->featured_image) }}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-cat">{{ $featuredPosts[2]->name }}</p>
+                                            <h2 class="post-title title-large white-color">
+                                                {{str_limit($featuredPosts[2]->title,35)}}
+                                            </h2>
+                                        </div>
                                     </div>
-                                     <div class="post-content">
-                                        <a class="post-cat" href="#">{{ $featuredPosts[2]->name }}</a>
-                                        <h2 class="post-title title-large">
-                                            <a href="{{ route('visitor.article.detail', $featuredPosts[2]->id) }}">{{str_limit($featuredPosts[2]->title,35)}}</a>
-                                        </h2>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @endisset
                     </div>
