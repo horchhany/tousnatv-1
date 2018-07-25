@@ -111,6 +111,10 @@ h5{
 	margin-right: 15px;
 }
 
+.white-color {
+	color: #fff !important;
+}
+
 /* Global styles
 ================================================== */
 
@@ -629,7 +633,7 @@ a[href^=tel] {
 
 /*-- Post meta --*/
 
-a.post-cat{
+a.post-cat, p.post-cat {
 	 position: relative;
 	 font-size: 14px;
 	 padding: 0 15px;
@@ -641,6 +645,10 @@ a.post-cat{
 	 line-height: 29px;
 	 display: inline-block;
 	 font-family: 'Hanuman', serif;
+}
+
+p.post-cat {
+	margin-bottom: 0;
 }
 
 .post-cat:before{
@@ -935,7 +943,8 @@ span.post-comment span{
 }
 
 .color-red .block-title > span,
-.color-red a.post-cat{
+.color-red a.post-cat,
+.color-red p.post-cat {
 	background: #ec0000;
 }
 
