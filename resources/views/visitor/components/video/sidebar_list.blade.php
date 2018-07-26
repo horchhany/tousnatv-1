@@ -1,4 +1,4 @@
-@if(!empty($video) & $video !== null)
+@if(!empty($video) && $video !== null)
 <div class="grid_item">
     <div class="padding-xs uk-clearfix">
         <a  href="{{ route('visitor.video.detail', $video->id) }}" class="link-item">
@@ -16,7 +16,9 @@
                 </div>
                 <div>
                     <span class="meta">
-                        {{ $video->category->name }}
+                        @isset ($video->category->name)
+                            {{ $video->category->name }}
+                        @endisset
                     </span>
                 </div>
             </div>

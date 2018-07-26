@@ -1,6 +1,14 @@
 @extends('visitor.layouts.main')
 
 @section('page_title', 'Watch Video')
+@section('meta')
+    <meta property="og:url"          content="{{ route('visitor.video.detail', $video->id) }}" />
+    <meta property="og:type"         content="website" />
+    <meta property="og:title"        content="{{ $video->title }}" />
+    <meta property="og:image"        content="{{ asset($video->featured_image) }}" />
+    <meta property="og:image:width"  content="640" />
+    <meta property="og:image:height" content="442" />
+@endsection
 
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('lib/jssocial/jssocials.css') }}">
