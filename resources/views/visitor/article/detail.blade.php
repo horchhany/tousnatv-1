@@ -69,26 +69,11 @@
                                                 <div class="post-content">
                                                     <p class="post-title" style="font-family: 'Hanuman', serif;">{!! $article->content !!} </p>
                                                 </div><!-- Post content end -->
-                                                <div class="post-detail__bottom uk-float-left">
-                                                    <div class="author">
-                                                        <p class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;"><span>អត្ថបទ ៖ </span>{{ $article->createdBy->username }}</p>
-                                                    </div>                                              
-                                                    <!-- <div class="uk-panel uk-margin-top uk-clearfix" style="margin-top: -5px;">
-                                                        <p>
-                                                        @foreach($article->tagged as $tag)
-                                                          <a href="{{ route('visitor.tag_posts') }}?name={{$tag->tag_slug}}" class="tag_item">{{ $tag->tag_name }}</a>
-                                                         @endforeach
-                                                        </p>                                                   
-                                                    </div> -->
-
-                                                </div>
                                                 <div class="header-right">
                                             </div>     
                                         </div><!-- /Facebook comment --><!-- /Post deatil entry -->
                                          <div class="datetime">
-                                    <div class="pull-left">
-                                        <h4 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;" >ប្រភព៖ Kanha ប្រែសម្រួល៖ ស្វាយ វ៉ាន់ថន</h4>
-                                    </div>
+                                    
                                     <div class="pull-right">
                                         <div class="social-share">
                                         </div>
@@ -112,9 +97,9 @@
                                     <div class="col-md-12">
                                         <div id="fb-root"></div>
                                         <div class="textcontast">
-                                            <h4 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;">ភ្លាប់ទំនាក់ទំនងជាមួយ <span​ class="khmer">Khmer</span​><span class="loop">loop</span></h4>
+                                            <h4 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;">ភ្លាប់ទំនាក់ទំនងជាមួយ <span​ class="khmer">Tousna</span​><span class="loop">TV</span></h4>
                                         </div>
-                                        <div class="fb-like" data-href="http://tousnatv.com/sharer/sharer.php?u={{URL::current()}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                                        <div class="fb-like" data-href="https://www.facebook.com/tousnatv/" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
                                     </div>   
                                 </div>
                                 <div class="gap-30"></div>
