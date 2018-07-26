@@ -13,9 +13,9 @@
                         </p>
                     </div>
                     <div class="footer-address">
-                        <strong class="font-kh-nokora footer-title">អាស័យដ្ធាន</strong>
+                        <strong class="font-kh-nokora footer-title">អាសយដ្ឋាន</strong>
                         <p class="font-kh-hanuman footer-title">
-                            អាគារលេខ ៣០៨ មហាវិថីព្រះមុន្នីវង្ស សង្កាត់បឹងរាំង ខណ្ឌដូនពេញ
+                            ផ្ទះលេខ12DEo ផ្លូវលេខ1 បុរីលឹមឈាងហោ ចម្ការដូង រាជធានីភ្នំពេញ
                         </p>
                     </div>
                 </div>

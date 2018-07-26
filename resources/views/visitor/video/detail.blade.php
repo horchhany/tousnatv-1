@@ -41,8 +41,9 @@
                 <!-- Video left description -->
                 <div class="detail-left post-detail__entry">
                     <div class="top-share uk-margin-bottom uk-margin-top">
-                        <div class="social-share">
-
+                       <div class="pull-right">
+                            <div class="social-share">
+                            </div>
                         </div>
                     </div>
 
@@ -60,15 +61,14 @@
                             </article>
                     </div>
 
-                    <div class="fb-connect uk-float-left">
-                        <h3 class="heading" >
-                            	Connect with			
-			                 <span class="company_name">
-                                TOUSNATV
-                            </span>
-                        </h3>
-                        <span class="facebook-like-share">
-                        </span>
+                     <div class="facebookbackground">
+                        <div class="col-md-12">
+                            <div id="fb-root"></div>
+                            <div class="textcontast">
+                                <h4 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;">ភ្លាប់ទំនាក់ទំនងជាមួយ <span​ class="khmer">Tousna</span​><span class="loop">TV</span></h4>
+                            </div>
+                            <div class="fb-like" data-href="https://www.facebook.com/tousnatv/" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+                        </div>   
                     </div>
 
                     <div class="facebook-comment uk-float-left">
@@ -138,8 +138,8 @@
     </div>
 </div>
 </div>
-<!-- /Top video slideshow -->
 
+<!-- /Top video slideshow -->
 
 @endsection
 

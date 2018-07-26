@@ -12,7 +12,7 @@
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="tousnatv &amp; NEWS WEBSITE" />
     <meta property="og:description"   content="We are the next leading media and news website in cambodia" />
-    <meta property="og:image"         content="http://tousnatv.com/images/logo/khmerloop.png" />
+    <meta property="og:image"         content="http://tousnatv.com/images/logo/tosnatv.png" />
 @else
     @yield('meta')
 @endif
