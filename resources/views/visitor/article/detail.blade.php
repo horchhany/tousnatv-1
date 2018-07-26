@@ -100,7 +100,13 @@
                                     </div>
                                 </div><!-- header right end --> 
                                 <div class="contaets">
-                                    <h4 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;">ពាក្យទាក់ទង</h4>
+                                    <h4 class="font-kh-nokora" style="font-family: Koulen,Arial,Helvetica,sans-serif;">ពាក្យទាក់ទង :
+                                        @isset ($article->tagged)
+                                            @foreach ($article->tagged as $tag)
+                                                {{ $tag->tag_name }} &nbsp;
+                                            @endforeach
+                                        @endisset
+                                    </h4>
                                 </div>
                                 <div class="facebookbackground">
                                     <div class="col-md-12">
