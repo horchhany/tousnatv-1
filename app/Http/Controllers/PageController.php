@@ -254,6 +254,7 @@ where p.category_id = 2 OR p.category_id=4 OR p.category_id=5 ORDER BY p.id desc
                             ])
                             ->with('tagged','category')
                             ->firstOrFail();
+            $currentMenuId = $article->category_id;
         } catch (ModelNotFoundException $e) {
             return view('errors.404')->with('exception', 'Oop! you have requested the resource that does not exists.\n We may considered create something new for you :D');
         }
@@ -297,7 +298,8 @@ where p.category_id = 2 OR p.category_id=4 OR p.category_id=5 ORDER BY p.id desc
         return view('visitor.article.detail')->with([
             'article' => $article,
             'relatedArticles' => $relatedArticles,
-            'recentArticles' => $recentArticles
+            'recentArticles' => $recentArticles,
+            'currentMenuId' => $currentMenuId,
         ]);
 
     }
@@ -386,6 +388,7 @@ where p.category_id = 2 OR p.category_id=4 OR p.category_id=5 ORDER BY p.id desc
                         ])
                         ->with('tagged','category','series')
                         ->firstOrFail();
+            $currentMenuId = $video->category_id;
         } catch (ModelNotFoundException $e) {
             return view('errors.404')->with('exception', 'Oop! you have requested the resource that does not exists.\n We may considered create something new for you :D');
         }
@@ -460,7 +463,8 @@ where p.category_id = 2 OR p.category_id=4 OR p.category_id=5 ORDER BY p.id desc
             'video' => $video,
             'serie' => $serie,
             'relatedVideos' => $relatedVideos,
-            'nextVideo' => $nextVideo
+            'nextVideo' => $nextVideo,
+            'currentMenuId' => $currentMenuId,
         ]);
 
     }

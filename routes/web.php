@@ -159,8 +159,6 @@ Route::group([
     // Article route
     Route::get('/page/articles', 'PageController@articlePage')->name('visitor.article.page');
     Route::get('/page/article/category/{category_id}', 'PageController@articleCategory')->name('visitor.article.category');
-
-
     Route::get('/page/article/serie/{serie_id}', 'PageController@articleSerie')->name('visitor.article.serie');
     Route::get('/page/article/read/{article_id}', 'PageController@articleDetail')->name('visitor.article.detail');
 
