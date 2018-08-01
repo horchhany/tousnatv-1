@@ -37,7 +37,8 @@
                             <ul class="nav navbar-nav">
                              @if(!empty($reading_menus))
                                 @foreach($reading_menus as $menu)
-                                  <li {{ url()->current() ==  route('visitor.article.category', $menu->id) ? 'class=active' : '' }}>
+                                  <li {{ url()->current() == route('visitor.article.category', $menu->id) ||
+                                         (isset($currentMenuId) && $currentMenuId == $menu->category_id) ? 'class=active' : '' }}>
                                       <a href="{{ route('visitor.article.category', $menu->id) }}" class="custom-a__link font-kh-nokora">
                                           {{ $menu->name }}
                                       </a>
@@ -46,7 +47,8 @@
                              @endif
                              @if(!empty($video_menus))
                                   @foreach($video_menus as $menu)
-                                    <li {{ url()->current() ==  route('visitor.video.category', $menu->id) ? 'class=active' : '' }}>
+                                    <li {{ url()->current() == route('visitor.video.category', $menu->id) ||
+                                           (isset($currentMenuId) && $currentMenuId == $menu->category_id) ? 'class=active' : '' }}>
                                         <a href="{{ route('visitor.video.category', $menu->id) }}" class="custom-a__link font-kh-nokora">
                                             <img src="{{asset('images')}}/{{ $menu->images}}" alt="">
                                         </a>
