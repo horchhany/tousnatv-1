@@ -1,12 +1,12 @@
 @extends('visitor.layouts.main')
 
-@section('page_title', 'Watch Video')
+@section('page_title', 'TOUSNATV | ' .$video->title)
 @section('meta')
-    <meta property="og:url"          content="{{ route('visitor.video.detail', $video->id) }}" />
-    <meta property="og:type"         content="website" />
-    <meta property="og:title"        content="{{ $video->title }}" />
-    <meta property="og:image"        content="{{ asset($video->featured_image) }}" />
-    <meta property="og:image:width"  content="640" />
+    <meta property="og:url"           content="{{ route('visitor.article.detail', $video->id) }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{$video->title}}" />
+    <meta property="og:image"         content="{{asset($video->featured_image) }}" />
+    <meta property="og:image:width" content="640" />
     <meta property="og:image:height" content="442" />
 @endsection
 
@@ -75,7 +75,7 @@
                         <h3 class="heading uk-margin-small-bottom">
                             <i class="fa fa-comments"></i>
                             <i class="fa fa-facebook-square"></i>
-                            Comment                </h3>
+                            Comment</h3>
                         <div class="fb-comments" data-href="{{ route('visitor.video.detail', $video->id) }}" data-width="100%" data-numposts="5"></div>
                     </div>
                 </div>
